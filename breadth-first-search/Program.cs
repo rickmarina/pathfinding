@@ -32,8 +32,7 @@ while (loc != null && !loc.Equals(start)) {
     map[loc.y][loc.x] = 'x';
 
     BFS.Print(map);
-    Thread.Sleep(70);
+    Thread.Sleep(40);
 
     loc = pathfound[loc];
-
 }

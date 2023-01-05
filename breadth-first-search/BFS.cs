@@ -36,7 +36,11 @@ public class BFS {
 
         while (queue.Count >0) {
             Location current = queue.Dequeue(); 
-            
+
+            //early exit
+            if (current.Equals(end)) 
+                break; 
+
             foreach (var next in GetNeighbors(map, current)) {
                if (!came_from.ContainsKey(next)) {
                     queue.Enqueue(next);
