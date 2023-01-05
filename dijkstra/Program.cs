@@ -13,3 +13,43 @@ Instead of adding a location to the frontier if the location has never been reac
 we’ll add it if the new path to the location is better than the best previous path.
 
 */
+
+
+using System.IO; 
+
+string path = Environment.CurrentDirectory+@"\map.txt";
+var lines = File.ReadAllLines(path); 
+
+Console.WriteLine(path);
+
+Location start = new Location(0,0);
+Location end = new Location(0,0);
+
+//Read the map 
+//but in this case we will save the cost of movement
+// # wall: -1 of cost
+// . road: 1 of cost 
+// O water: 5 of cost 
+// - grass: 3 of cost 
+var map = lines.Select( (line,y) => {
+    return line.Select( (val, x) => {
+        if (val == 'S') {
+            start = new Location(x, y);
+        } else if (val == 'E') {
+            end = new Location(x, y);
+        }
+
+        return val switch 
+        {
+            '.' => 1,
+            '#' => -1, 
+            'O' => 5, 
+            '-' => 3,
+            'E' => 0,
+            'S' => 0,
+            _ => 1
+        };
+    }).ToArray();
+}).ToArray(); 
+
+Dijkstra.Print(map);
