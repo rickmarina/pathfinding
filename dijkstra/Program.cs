@@ -12,6 +12,8 @@ with different costs, so we need to alter the logic a little bit.
 Instead of adding a location to the frontier if the location has never been reached, 
 we’ll add it if the new path to the location is better than the best previous path.
 
+Using a priority queue instead of a regular queue changes the way the frontier expands. 
+
 */
 
 
@@ -52,4 +54,24 @@ var map = lines.Select( (line,y) => {
     }).ToArray();
 }).ToArray(); 
 
+var originalMap = lines.Select( (line,y) => {
+    return line.Select( (val, x) => {
+        return val;
+    }).ToArray();
+}).ToArray(); 
+
+// mapa load ends
+
 Dijkstra.Print(map);
+
+var pathfound = Dijkstra.SolvePath(map, start, end);
+
+Location? loc = pathfound[end];
+while (loc != null && !loc.Equals(start)) {
+    originalMap[loc.y][loc.x] = 'x';
+
+    Dijkstra.Print(originalMap);
+    Thread.Sleep(40);
+
+    loc = pathfound[loc];
+}
