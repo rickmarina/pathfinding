@@ -6,8 +6,8 @@ public class BFS {
         Queue<Location> queue = new Queue<Location>(); 
         queue.Enqueue(start);
 
-        HashSet<string> reached = new(); 
-        reached.Add(start.ToString()); 
+        HashSet<Location> reached = new(); 
+        reached.Add(start); 
 
         while (queue.Count > 0) {
             Location current = queue.Dequeue(); 
@@ -19,7 +19,7 @@ public class BFS {
             //Console.ReadKey();
 
             foreach (var next in GetNeighbors(map, current)) {
-               if (reached.Add(next.ToString())) {
+               if (reached.Add(next)) {
                     queue.Enqueue(next);
                } 
             }
