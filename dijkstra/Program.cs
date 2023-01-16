@@ -16,7 +16,7 @@ Using a priority queue instead of a regular queue changes the way the frontier e
 
 */
 
-
+using shared;
 using System.IO; 
 
 string path = Environment.CurrentDirectory+@"\map.txt";

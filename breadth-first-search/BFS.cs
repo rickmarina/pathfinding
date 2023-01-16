@@ -1,5 +1,6 @@
 
 using System.Threading;
+using shared;
 public class BFS {
 
     public static void Solve(char[][] map, Location start) {

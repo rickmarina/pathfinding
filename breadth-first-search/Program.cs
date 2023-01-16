@@ -1,4 +1,5 @@
-﻿using System.IO; 
+﻿using shared;
+using System.IO; 
 
 string path = Environment.CurrentDirectory+@"\map.txt";
 var lines = File.ReadAllLines(path); 

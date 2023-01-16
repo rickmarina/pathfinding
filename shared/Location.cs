@@ -1,3 +1,5 @@
+namespace shared;
+
 public class Location {
 
     public int x { get; set; }
