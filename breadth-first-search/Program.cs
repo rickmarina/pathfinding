@@ -22,7 +22,7 @@ var map = lines.Select( (line,y) => {
 
 }).ToArray(); 
 
-BFS.Print(map);
+MapUtils.Print(map);
 
 //BFS.Solve(map, start);
 
@@ -32,7 +32,7 @@ Location? loc = pathfound[end];
 while (loc != null && !loc.Equals(start)) {
     map[loc.y][loc.x] = 'x';
 
-    BFS.Print(map);
+    MapUtils.Print(map);
     Thread.Sleep(40);
 
     loc = pathfound[loc];

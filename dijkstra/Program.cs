@@ -62,7 +62,7 @@ var originalMap = lines.Select( (line,y) => {
 
 // mapa load ends
 
-Dijkstra.Print(map);
+MapUtils.Print(map);
 
 var pathfound = Dijkstra.SolvePath(map, start, end);
 
@@ -70,7 +70,7 @@ Location? loc = pathfound[end];
 while (loc != null && !loc.Equals(start)) {
     originalMap[loc.y][loc.x] = 'x';
 
-    Dijkstra.Print(originalMap);
+    MapUtils.Print(originalMap);
     Thread.Sleep(40);
 
     loc = pathfound[loc];

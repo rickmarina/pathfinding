@@ -15,7 +15,8 @@ public class BFS {
 
             if (map[current.y][current.x] == '.') 
                  map[current.y][current.x] = 'O';
-            Print(map);
+                 
+            MapUtils.Print(map);
             Thread.Sleep(75);
             //Console.ReadKey();
 
@@ -68,17 +69,4 @@ public class BFS {
         }
     }
 
-
-    public static void Print(char[][] map) {
-        Console.WriteLine("------- map: ");
-
-        for (int i = 0; i < map.Length; i++)
-        {
-            for (int j = 0; j < map[0].Length; j++)
-            {
-                Console.Write(string.Format("{0, 3}", map[i][j]));
-            }
-            Console.WriteLine();
-        }
-    }
 }
